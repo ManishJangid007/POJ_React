@@ -1,0 +1,24 @@
+.sidebar--item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 88%;
+    height: 45px;
+    margin: 5px 15px;
+}
+
+.sidebar--item h2 {
+    font-weight: 500;
+    font-size: 1.3em;
+    line-height: 27px;
+}
+
+.sidebar--item img {
+    margin: 0px 8px;
+}
+
+.sidebar--item--selected {
+    background: #FEB159;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
