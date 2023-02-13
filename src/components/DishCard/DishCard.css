@@ -1,0 +1,51 @@
+.dishcard {
+    width: 80%;
+    height: 350px;
+    background: #FEB159;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+    margin-bottom: 2em;
+}
+
+.dishcard > img {
+    height: 50%;
+    width: 100%;
+    object-fit:cover;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.dishcard h2 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: #373737;
+    margin: 15px 0px;
+}
+
+.dishcard h4 {
+    margin-bottom: auto;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #373737;
+}
+
+.dishcard--lastrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 10px 0px;
+}
+
+.dishcard--von {
+    width: 26px;
+    height: 26px;
+    background: #82B681;
+    border-radius: 15px;
+    margin-left: auto;
+}

@@ -1,0 +1,29 @@
+.filters {
+    display: flex;
+    padding-left: 18px;
+    overflow-x: scroll;
+    padding: 14px 18px;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    border-radius: 15px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.filter h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #403E3E;
+    white-space: nowrap;
+    margin: 0px 8px;
+}
