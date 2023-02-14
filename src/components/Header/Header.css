@@ -48,3 +48,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.header--pojicon {
+    height: 1.8em;
+    width: auto;
+    margin-right: 10px;
+}

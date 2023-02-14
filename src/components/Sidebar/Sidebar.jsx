@@ -10,6 +10,7 @@ import GearIco from "../../assets/icons/gear.png";
 import GearActiveIco from "../../assets/icons/gear_a.png";
 import AboutIco from "../../assets/icons/about.png";
 import AboutActiveIco from "../../assets/icons/about_a.png";
+import Blob from "../../assets/blobs/blob3.png";
 
 export default function Sidebar() {
     return (
@@ -50,6 +51,7 @@ export default function Sidebar() {
                     title="About Us"
                     selected={false}
                 />
+                <img src={Blob} alt="blob" className="sidebar--blob" />
             </div>
         </div>
     )

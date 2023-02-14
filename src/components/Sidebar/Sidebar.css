@@ -29,3 +29,7 @@
     width: 80%;
     border: 1px solid #DEDEDE;
 }
+
+.sidebar--blob {
+    margin-top: auto;
+}
