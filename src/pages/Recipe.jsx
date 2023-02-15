@@ -3,10 +3,12 @@ import CloseIco from "../assets/icons/close.png";
 import HeartIco from "../assets/icons/heart_white.png";
 import HeartFilledIco from "../assets/icons/heart_filled_small.png";
 import TimeIco from "../assets/icons/time.png";
-import FoodImg from "../assets/images/food1.jpg";
+import FoodImg from "../assets/images/food3.jpg";
 import "./Recipe.css";
 
 export default function Recipe() {
+    const [liked, setLiked] = React.useState(false);
+    const like = () => setLiked(prev => !prev);
     return (
         <div className="recipe">
             <div className="recipe--img--div">
@@ -17,8 +19,8 @@ export default function Recipe() {
                         </div>
                         <div className="recipe--von"></div>
                     </div>
-                    <div className="recipe--blackcircle">
-                        <img src={HeartIco} alt="heart icon" />
+                    <div className="recipe--blackcircle" onClick={like}>
+                        <img src={liked ? HeartFilledIco : HeartIco} alt="heart icon" />
                     </div>
                 </div>
                 <img src={FoodImg} alt="food img" className="recipe--img" />
