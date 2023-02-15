@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100vh;
     background-color: #F8D8BC;
+    overflow-y: scroll;
 }
 
 .recipe h2 {

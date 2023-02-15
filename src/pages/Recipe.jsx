@@ -41,7 +41,9 @@ export default function Recipe() {
             <div className="recipe--recipe">
                 <h2>Recipe :-</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Magni sequi delectus sed labore porro corporis commodi sunt! Perspiciatis molestiae ipsa facilis inventore quisquam harum quos quia odio, voluptas non nesciunt.</p>
+                    Magni sequi delectus sed labore porro corporis commodi sunt! Perspiciatis molestiae ipsa facilis inventore quisquam harum quos quia odio, voluptas non nesciunt.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis possimus id illo quisquam architecto numquam culpa eum! Sunt quo eius fugiat rem. Labore unde quas commodi perspiciatis dolore, 
+                    deleniti eum assumenda in consequatur dolor voluptates distinctio. Nulla, inventore. Nemo labore harum quibusdam laborum perspiciatis explicabo quis voluptatibus facere. Temporibus, provident. Consequuntur animi culpa similique? Ipsam accusamus temporibus dolorem totam beatae minima molestias ea sapiente provident! Est omnis provident dolore pariatur, veritatis sed. Molestias sequi aperiam vel repellendus eum et similique veritatis quidem iusto! Vitae aliquam ullam quod fugiat explicabo quos iure expedita mollitia similique harum labore, repudiandae nisi. Ab, laborum!</p>
             </div>
         </div>
     )
