@@ -3,7 +3,18 @@
     position: absolute;
     z-index: 10;
     height: 100vh;
-    width: 100vw;
+}
+
+
+.sidebar--expanded {
+    transform: translateX(0px);
+    transition: 0.3s;
+
+}
+
+.sidebar--collapse {
+    transform: translateX(-500px);
+    transition: 0.3s;
 }
 
 .sidebar {
@@ -32,4 +43,15 @@
 
 .sidebar--blob {
     margin-top: auto;
+}
+
+.sidebar--heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sidebar--heading img {
+    padding: 0px 20px;
 }

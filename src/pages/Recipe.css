@@ -17,7 +17,6 @@
     width: 100vw;
     border-radius: 0px 0px 15px 15px;
     position: relative;
-    z-index: 10;
 }
 
 .recipe--img--div2{
@@ -72,7 +71,6 @@
     display: flex;
     align-items: center;
     padding: 0px 10px;
-    z-index: 10;
 }
 
 .recipe--title--div h4 {
@@ -89,7 +87,6 @@
 
 .recipe--ingredients {
     padding: 10px;
-    z-index: 10;
 }
 
 .recipe--ingredients h2 {
@@ -106,7 +103,6 @@
 
 .recipe--recipe {
     padding: 10px;
-    z-index: 10;
 }
 
 .recipe--recipe h2 {

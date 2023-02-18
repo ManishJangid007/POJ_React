@@ -3,10 +3,12 @@ import CloseIco from "../assets/icons/close.png";
 import HeartIco from "../assets/icons/heart_white.png";
 import HeartFilledIco from "../assets/icons/heart_filled_small.png";
 import TimeIco from "../assets/icons/time.png";
-import FoodImg from "../assets/images/food3.jpg";
+import FoodImg from "../assets/images/food2.jpg";
+import { useNavigate } from "react-router-dom";
 import "./Recipe.css";
 
 export default function Recipe() {
+    const navigate = useNavigate();
     const [liked, setLiked] = React.useState(false);
     const like = () => setLiked(prev => !prev);
     return (
@@ -15,7 +17,7 @@ export default function Recipe() {
                 <div className="recipe--img--div2">
                     <div className="recipe--img--div3">
                         <div className="recipe--blackcircle">
-                            <img src={CloseIco} alt="close icon" />
+                            <img src={CloseIco} alt="close icon" onClick={() => navigate(-1)} />
                         </div>
                         <div className="recipe--von"></div>
                     </div>

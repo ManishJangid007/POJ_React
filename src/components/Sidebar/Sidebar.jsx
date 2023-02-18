@@ -11,12 +11,23 @@ import GearActiveIco from "../../assets/icons/gear_a.png";
 import AboutIco from "../../assets/icons/about.png";
 import AboutActiveIco from "../../assets/icons/about_a.png";
 import Blob from "../../assets/blobs/blob3.png";
+import BackIco from "../../assets/icons/back.png";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+    console.log(props);
     return (
-        <div className="sidebar--background">
-            <div className="sidebar">
-                <h1 className="sidebar--title">Plate Of Joy</h1>
+        <div className={`sidebar--background ${
+            props.expanded ? "sidebar--expanded" :
+            "sidebar--collapse"
+        }`}>
+            <div className={`sidebar ${
+            props.expanded ? "sidebar--expanded" :
+            "sidebar--collapse"
+        }`}>
+                <div className="sidebar--heading">
+                    <h1 className="sidebar--title">Plate Of Joy</h1>
+                    <img src={BackIco} alt="back icon" onClick={props.collapse} />
+                </div>
                 <Item 
                     active_icon={HomeActiveIco}
                     icon={HomeIco}
