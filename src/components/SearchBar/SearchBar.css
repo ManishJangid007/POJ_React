@@ -39,3 +39,7 @@
     color: #373737;
 }
 
+.searchbar input:focus, textarea:focus {
+    outline: none;
+}
+
