@@ -14,7 +14,6 @@ import Blob from "../../assets/blobs/blob3.png";
 import BackIco from "../../assets/icons/back.png";
 
 export default function Sidebar(props) {
-    console.log(props);
     return (
         <div className={`sidebar--background ${
             props.expanded ? "sidebar--expanded" :
