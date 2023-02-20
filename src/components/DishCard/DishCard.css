@@ -1,5 +1,5 @@
 .dishcard {
-    width: 80%;
+    width: 250px;
     height: 350px;
     background: #FEB159;
     border-radius: 15px;
@@ -48,4 +48,10 @@
     background: #82B681;
     border-radius: 15px;
     margin-left: auto;
+}
+
+@media only screen and (max-width: 550px) {
+    .dishcard {
+        width: 300px;
+    }
 }

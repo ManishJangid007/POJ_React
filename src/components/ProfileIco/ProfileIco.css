@@ -1,0 +1,36 @@
+.header--user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+
+.profileico {
+    display: flex;
+    margin: 0px 10px;
+}
+
+.header--user h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(30, 30, 30, 0.87);
+}
+
+.header--user h4 {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: rgba(30, 30, 30, 0.87);
+}
+
+.header--profile {
+    width: 39px;
+    height: 39px;
+    background: #FEB159;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

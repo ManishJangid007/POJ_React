@@ -43,3 +43,22 @@
     outline: none;
 }
 
+.searchbar--upper--div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+@media only screen and (min-width: 550px) {
+    .searchbar {
+        margin-right: auto;
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 1023px) {
+    .searchbar {
+        margin-right: auto;
+        width: 40%;
+    }
+}
+

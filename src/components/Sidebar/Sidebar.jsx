@@ -25,7 +25,13 @@ export default function Sidebar(props) {
         }`}>
                 <div className="sidebar--heading">
                     <h1 className="sidebar--title">Plate Of Joy</h1>
-                    <img src={BackIco} alt="back icon" onClick={props.collapse} />
+                    {!props.device.isDesktop && 
+                        <img 
+                            src={BackIco} 
+                            alt="back icon" 
+                            onClick={props.collapse} 
+                        />
+                    }
                 </div>
                 <Item 
                     active_icon={HomeActiveIco}

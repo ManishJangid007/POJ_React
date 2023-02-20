@@ -2,13 +2,20 @@ import React from "react";
 import "./SearchBar.css";
 import SearchIco from "../../assets/icons/search.png";
 import HambergIco from "../../assets/icons/hamberg.png";
-import Devices from "../../utils/Device";
+import ProfileIco from "../ProfileIco/ProfileIco";
 
 export default function SearchBar(props) {
-    const Device = Devices();
+    if (props.device.isMobile) return <Bar device={props.device} expandSidebar={props.expandSidebar} />
+    else return <div className="searchbar--upper--div">
+        <Bar device={props.device} expandSidebar={props.expandSidebar} />
+        <ProfileIco />
+    </div>
+}
+
+function Bar(props) {
     return (
         <div className="searchbar">
-            {!Device.isDesktop &&
+            {!props.device.isDesktop &&
                 <>
                     <img src={HambergIco} alt="hamber ico" onClick={props.expandSidebar}/>
                     <div className="vl"></div>
