@@ -3,11 +3,11 @@ import Blob1 from "../../assets/blobs/blob2.png";
 import Blob2 from "../../assets/blobs/blob1.png";
 import "./Background.css"
 
-export default function Background(props) {
+export default function Background() {
     return (
         <div className="background">
             <img src={Blob1} />
-            {!props.device.isDesktop && <img src={Blob2} />}
+            <img src={Blob2} />
         </div>
     )
 }

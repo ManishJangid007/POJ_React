@@ -1,0 +1,172 @@
+.recipetab {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1em 0px;
+}
+
+.recipetab--head {
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 10px;
+}
+
+.recipetab--blackcircle {
+    background-color: #000000;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipetab--von {
+    height: 26px;
+    width: 26px;
+    background-color: #82B681;
+    border-radius: 50%;
+}
+
+.recipetab--maindiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.recipetab--recipe {
+    width: 40vw;
+    padding: 0px 20px;
+    overflow-y: hidden;
+}
+
+.recipetab--imgbase {
+    width: 40vw;
+    height: 50vh;
+    border-radius: 1em;
+    position: relative;
+}
+
+.recipetab--imgbase > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+    position: absolute;
+}
+
+.recipetab--imgforeground {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.recipetab--imgforeground > div{
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    z-index: 10;
+}
+
+.recipetab--innerdiv {
+    height: 75%;
+    width: 90%;
+    background: #F8D8BC;
+    border-radius: 15px;
+    filter: drop-shadow(4px 4px 15px rgba(0, 0, 0, 0.25));
+} 
+
+.recipetab--dishtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+.recipetab--dishtitle > h2 {
+    margin: 0px 10px;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: #373737;
+}
+
+.recipetab--dishtitle > img {
+    margin-left: auto;
+}
+
+.recipetab--dishtitle > h4 {
+    margin: 0px 10px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #4B4B4B;
+}
+
+.recipetab--ingredients {
+    padding: 10px;
+}
+.recipetab--actualrecipe {
+    padding: 10px;
+}
+
+.recipetab--ingredients > h2 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: #373737;
+}
+.recipetab--actualrecipe > h2 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: #373737;
+}
+
+.recipetab--ingredients ol {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #585858;
+}
+
+.recipetab--actualrecipe > p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #585858;
+}
+
+.recipetab--suggestion {
+    width: 40%;
+    height: fit-content;
+    border-left: 2px solid #8E8E8E;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media only screen and (max-width: 821px) {
+    .recipetab--suggestion {
+        border: none;
+        width: 90%;
+    }
+
+    .recipetab--imgbase {
+        width: 100%;
+    }
+
+    .recipetab--recipe {
+        width: 90%;
+    }
+
+    .recipetab--maindiv {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}

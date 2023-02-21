@@ -1,0 +1,49 @@
+.suggested--recipe {
+    width: 90%;
+    height: 100px;
+    border-radius: 0.5em;
+    background-color: #FEB159;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.suggested--recipe img {
+    width: auto;
+    height: 100%;
+    border-radius: 0.5em 0px 0px 0.5em;
+}
+
+.suggested--title {
+    padding: 0px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.suggested--title h2 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #373737;
+}
+
+.suggested--bottom--row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.suggested--bottom--row h4 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4B4B4B;
+}
+
+.suggested--von {
+    width: 18px;
+    height: 18px;
+    background: #F15F5F;
+    border-radius: 15px;
+}

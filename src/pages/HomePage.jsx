@@ -27,22 +27,32 @@ export default function HomePage(){
         />
       }
       <div className="homepage--main--content">
-        <Background device={Device} />
+        {!Device.isDesktop && <Background />}
         {Device.isMobile && <Header />}
         <SearchBar 
           expandSidebar={() => setSidebarExpanded(true)}
           device={Device}
         />
         <Filters />
-        <div className="homepage--main--content--div">
-          <main>
+         <div className="homepage--main--content--div">
+          <main className="homepage--grid">
+            <DishCard />
+            <DishCard />
+            <DishCard />
+            <DishCard />
+            <DishCard />
+            <DishCard />
+            <DishCard />
+            <DishCard />
+            <DishCard />
+            <DishCard />
             <DishCard />
             <DishCard />
             <DishCard />
             <DishCard />
             <DishCard />
           </main>
-        </div>
+        </div> 
       </div>
     </div>
   )
