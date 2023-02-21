@@ -16,7 +16,7 @@ export default function Login() {
                 </div>
                 <div className="loginpage--loginform">
                     <img src={POJIco} alt="poj icon" />
-                    <h1>Sign in</h1>
+                    <h1>Login</h1>
                     <div className="loginpage--inputdiv">
                         <input type="text" placeholder="Username / Email" />
                     </div>
