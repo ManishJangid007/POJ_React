@@ -24,7 +24,7 @@ export default function Sidebar(props) {
             "sidebar--collapse"
         }`}>
                 <div className="sidebar--heading">
-                    <h1 className="sidebar--title">Plate Of Joy</h1>
+                    <h1 className="sidebar--title">Plate of Joy</h1>
                     {!props.device.isDesktop && 
                         <img 
                             src={BackIco} 

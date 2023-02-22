@@ -1,0 +1,21 @@
+.mainlayout{
+    display: flex;
+}
+
+.mainlayout--maincontent {
+    width: 100%;
+}
+
+.mainlayout--content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(100vh - 8.5em);
+    overflow-y: auto;
+}
+
+@media only screen and (max-width: 550px){
+    .mainlayout--content {
+        height: calc(100vh - 12em);
+    }
+}

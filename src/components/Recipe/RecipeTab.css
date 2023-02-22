@@ -150,7 +150,7 @@
     align-items: center;
 }
 
-@media only screen and (max-width: 821px) {
+@media only screen and (max-width: 930px) {
     .recipetab--suggestion {
         border: none;
         width: 90%;
