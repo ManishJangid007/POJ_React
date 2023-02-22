@@ -1,8 +1,8 @@
 import React from "react";
-import DishCard from "../components/DishCard/Dishcard";
+import DishCard from "../../components/DishCard/Dishcard";
 import "./HomePage.css";
-import Devices from "../utils/Device";
-import MainLayout from "../layouts/MainLayout";
+import Devices from "../../utils/Device";
+import MainLayout from "../../layouts/MainLayout";
 
 export default function HomePage() {
   const [SidebarExpanded, setSidebarExpanded] = React.useState(false);

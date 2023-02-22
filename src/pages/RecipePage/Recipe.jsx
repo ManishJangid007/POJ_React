@@ -1,8 +1,8 @@
 import React from "react";
-import RecipeMobile from "../components/Recipe/RecipeMobile";
-import RecipeTab from "../components/Recipe/RecipeTab";
-import Devices from "../utils/Device";
-import MainLayout from "../layouts/MainLayout";
+import RecipeMobile from "../../components/Recipe/RecipeMobile";
+import RecipeTab from "../../components/Recipe/RecipeTab";
+import Devices from "../../utils/Device";
+import MainLayout from "../../layouts/MainLayout";
 import "./Recipe.css";
 
 export default function Recipe() {

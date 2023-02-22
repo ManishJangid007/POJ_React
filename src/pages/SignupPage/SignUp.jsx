@@ -1,7 +1,7 @@
 import React from "react";
-import Background from "../components/Background/Background";
-import BackIco from "../assets/icons/back_white.png";
-import POJIco from "../assets/icons/poj.png";
+import Background from "../../components/Background/Background";
+import BackIco from "../../assets/icons/back_white.png";
+import POJIco from "../../assets/icons/poj.png";
 import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
