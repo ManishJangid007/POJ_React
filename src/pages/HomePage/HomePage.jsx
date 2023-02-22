@@ -9,7 +9,7 @@ export default function HomePage() {
   const Device = Devices();
 
   let ele = [];
-  for(let i = 0; i < 20; i++) ele.push(<DishCard />);
+  for(let i = 0; i < 20; i++) ele.push(<DishCard  key={i}/>);
 
   return (
     <MainLayout
@@ -17,7 +17,7 @@ export default function HomePage() {
       sidebarExpanded={SidebarExpanded}
       setSidebarExpanded={setSidebarExpanded}
     >
-      <main className="homepage--grid">
+      <main className="custom--grid">
           {ele}
       </main>
     </MainLayout>

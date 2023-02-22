@@ -12,8 +12,11 @@ import AboutIco from "../../assets/icons/about.png";
 import AboutActiveIco from "../../assets/icons/about_a.png";
 import Blob from "../../assets/blobs/blob3.png";
 import BackIco from "../../assets/icons/back.png";
+import { useLocation } from "react-router-dom";
 
 export default function Sidebar(props) {
+    const location = useLocation();
+    const path = location.pathname;
     return (
         <div className={`sidebar--background ${
             props.expanded ? "sidebar--expanded" :
@@ -37,35 +40,45 @@ export default function Sidebar(props) {
                     active_icon={HomeActiveIco}
                     icon={HomeIco}
                     title="Home"
-                    selected={true}
+                    selected={
+                        !path.startsWith("/diet_planner") &&
+                        !path.startsWith("/favourite") &&
+                        !path.startsWith("/settings") &&
+                        !path.startsWith("/about_us") 
+                    }
+                    path="/"
                 />
                 <hr/>
                 <Item 
                     active_icon={FoodIcon}
                     icon={FoodIcon}
                     title="Diet Planner"
-                    selected={false}
+                    selected={path.startsWith("/diet_planner") ? true : false}
+                    path="/diet_planner"
                 />
                 <hr/>
                 <Item 
                     active_icon={HeartActiveIco}
                     icon={HeartIco}
                     title="Favourite Recipes"
-                    selected={false}
+                    selected={path.startsWith("/favourite") ? true : false}
+                    path="/favourite"
                 />
                 <hr/>
                 <Item 
                     active_icon={GearActiveIco}
                     icon={GearIco}
                     title="Settings"
-                    selected={false}
+                    selected={path.startsWith("/settings") ? true : false}
+                    path="/settings"
                 />
                 <hr/>
                 <Item 
                     active_icon={AboutActiveIco}
                     icon={AboutIco}
                     title="About Us"
-                    selected={false}
+                    selected={path.startsWith("/about_us") ? true : false}
+                    path="/about_us"
                 />
                 <img src={Blob} alt="blob" className="sidebar--blob" />
             </div>

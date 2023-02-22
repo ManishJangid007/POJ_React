@@ -30,9 +30,11 @@ export default function MainLayout(props) {
                     expandSidebar={() => props.setSidebarExpanded(true)}
                     device={props.device}
                 />
-                <div>
-                    <Filters />
-                </div>
+                {!props.hideFilter && 
+                    <div>
+                        <Filters />
+                    </div>
+                }
                 <div className="mainlayout--content">
                     {props.children}
                 </div>

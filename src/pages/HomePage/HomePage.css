@@ -1,4 +1,4 @@
-.homepage--grid {
+.custom--grid {
     width: fit-content;
     height: 100%;
     margin: 10px 0px;
@@ -9,35 +9,35 @@
 }
 
 @media only screen and (min-width: 550px) {
-    .homepage--grid {
+    .custom--grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media only screen and (min-width: 950px) {
-    .homepage--grid {
+    .custom--grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 @media only screen and (min-width: 1023px) {
-    .homepage--grid {
+    .custom--grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 @media only screen and (min-width: 1100px) {
-    .homepage--grid {
+    .custom--grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media only screen and (min-width: 1350px) {
-    .homepage--grid {
+    .custom--grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media only screen and (min-width: 1650px) {
-    .homepage--grid {
+    .custom--grid {
         grid-template-columns: repeat(5, 1fr);
     }
 } 
