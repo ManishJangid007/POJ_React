@@ -5,6 +5,7 @@
     width: 88%;
     height: 45px;
     margin: 5px 15px;
+    text-decoration: none;
 }
 
 .sidebar--item h2 {

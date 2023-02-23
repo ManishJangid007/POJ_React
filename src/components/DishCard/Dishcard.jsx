@@ -11,7 +11,7 @@ export default function DishCard() {
 
     return (
         <div className="dishcard">
-            <img src={Food} alt="Food" onClick={() => navigate("/recipe")} />
+            <img src={Food} alt="Food" onClick={() => navigate("/recipe/23")} />
             <h2>Dish Name</h2>
             <h4>Category</h4>
             <div className="dishcard--lastrow">

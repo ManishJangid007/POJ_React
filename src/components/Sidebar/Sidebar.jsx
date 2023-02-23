@@ -40,12 +40,6 @@ export default function Sidebar(props) {
                     active_icon={HomeActiveIco}
                     icon={HomeIco}
                     title="Home"
-                    selected={
-                        !path.startsWith("/diet_planner") &&
-                        !path.startsWith("/favourite") &&
-                        !path.startsWith("/settings") &&
-                        !path.startsWith("/about_us") 
-                    }
                     path="/"
                 />
                 <hr/>
@@ -53,7 +47,6 @@ export default function Sidebar(props) {
                     active_icon={FoodIcon}
                     icon={FoodIcon}
                     title="Diet Planner"
-                    selected={path.startsWith("/diet_planner") ? true : false}
                     path="/diet_planner"
                 />
                 <hr/>
@@ -61,7 +54,6 @@ export default function Sidebar(props) {
                     active_icon={HeartActiveIco}
                     icon={HeartIco}
                     title="Favourite Recipes"
-                    selected={path.startsWith("/favourite") ? true : false}
                     path="/favourite"
                 />
                 <hr/>
@@ -69,7 +61,6 @@ export default function Sidebar(props) {
                     active_icon={GearActiveIco}
                     icon={GearIco}
                     title="Settings"
-                    selected={path.startsWith("/settings") ? true : false}
                     path="/settings"
                 />
                 <hr/>
@@ -77,7 +68,6 @@ export default function Sidebar(props) {
                     active_icon={AboutActiveIco}
                     icon={AboutIco}
                     title="About Us"
-                    selected={path.startsWith("/about_us") ? true : false}
                     path="/about_us"
                 />
                 <img src={Blob} alt="blob" className="sidebar--blob" />
