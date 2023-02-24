@@ -27,9 +27,9 @@
     height: 80vh;
 }
 
-.loginpage--loginform h1 {
+.loginpage--loginform>h1 {
     font-weight: 600;
-    font-size: 48px;
+    font-size: 3em;
     line-height: 58px;
     color: #1E1E1E;
 }
@@ -88,6 +88,7 @@
     line-height: 19px;
     color: #5F5F5F;
 }
+
 .loginpage--bottom--text span {
     color: #005EEB;
     cursor: pointer;

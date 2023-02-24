@@ -17,6 +17,26 @@
     margin-right: auto;
 }
 
+.signup--blackcircle--msg {
+    background-color: #000000;
+    height: 36px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 20px;
+    margin-right: auto;
+    color: rgb(251, 250, 250);
+}
+
+@media only screen and (max-width: 550px) {
+    .signup--blackcircle--msg {
+        margin: 50px 0px;
+    }
+}
+
 .signup--form {
     display: flex;
     justify-content: flex-start;
@@ -32,9 +52,9 @@
     flex-direction: column;
 }
 
-.signup--form h1 {
+.signup--form>h1 {
     font-weight: 600;
-    font-size: 48px;
+    font-size: 3em;
     line-height: 58px;
     color: #1E1E1E;
 }
@@ -54,7 +74,7 @@
 select {
     width: 100%;
     height: 100%;
-    background: none;
+    background: transparent;
     border: none;
     text-align: center;
     font-weight: 500;
@@ -67,6 +87,7 @@ select {
 .signup--inputdiv input:focus,
 select:focus {
     outline: none;
+    background: none;
 }
 
 .signup--loginbtn {
@@ -112,6 +133,7 @@ select:focus {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    max-width: 16em;
 }
 
 .signup--fielddiv label {
@@ -120,6 +142,26 @@ select:focus {
     font-size: 1.25em;
     line-height: 24px;
     color: #161616;
+}
+
+.signup--fielddiv p {
+    color: lightcoral;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 18px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.signup--otp--msg {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #5F5F5F;
+}
+
+.signup--otp--msg span {
+    color: #005EEB;
 }
 
 @media only screen and (min-width: 768px) {
