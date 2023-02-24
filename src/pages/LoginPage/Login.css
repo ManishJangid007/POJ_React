@@ -27,6 +27,22 @@
     height: 80vh;
 }
 
+.loginpage--loginform p {
+    color: lightcoral;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 18px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.loginpage--loginform>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .loginpage--loginform>h1 {
     font-weight: 600;
     font-size: 3em;
@@ -35,7 +51,7 @@
 }
 
 .loginpage--inputdiv {
-    width: 100%;
+    width: 15em;
     height: 3em;
     background: #FEB159;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.25);
@@ -43,7 +59,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 10px 0px;
 }
 
 .loginpage--inputdiv input {
@@ -53,7 +69,7 @@
     border: none;
     text-align: center;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1em;
     line-height: 24px;
     color: #5F5F5F;
     margin: 10px;
@@ -69,17 +85,15 @@
     background: #64D0FF;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
-}
-
-.loginpage--loginbtn h3 {
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     color: #FFFFFF;
+    margin: 20px;
 }
 
 .loginpage--bottom--text h4 {
@@ -92,4 +106,21 @@
 .loginpage--bottom--text span {
     color: #005EEB;
     cursor: pointer;
+}
+
+.loginpage--fielddiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+    max-width: 16em;
+}
+
+.loginpage--fielddiv label {
+    margin: 8px 10px;
+    font-weight: 500;
+    font-size: 1.25em;
+    line-height: 24px;
+    color: #161616;
 }
