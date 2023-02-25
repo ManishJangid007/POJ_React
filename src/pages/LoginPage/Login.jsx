@@ -3,8 +3,9 @@ import Background from "../../components/Background/Background";
 import BackIco from "../../assets/icons/back_white.png";
 import POJIco from "../../assets/icons/poj.png";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
 import Loading from "../../components/Loading/Loading";
+import axios from "axios";
+import "./Login.css";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -25,11 +26,27 @@ export default function Login() {
         }));
     }
 
-    function handelSubmit(event) {
+    async function handelSubmit(event) {
         event.preventDefault();
+        setError([]);
         const errors = validateData(formData);
-        errors ? setError(errors) : setError([]);
-        console.log(formData);
+        if (errors) {
+            setError(errors);
+            return;
+        } else {
+            try {
+                setIsLoading(true);
+                const res = await axios.post("/api/user/login", formData);
+                setIsLoading(false);
+                if (res.data.err) setError(res.data.errs);
+                else navigate("/");
+                return;
+            } catch (e) {
+                setIsLoading(false);
+                setError([e.message]);
+                return;
+            }
+        }
     }
 
     return (

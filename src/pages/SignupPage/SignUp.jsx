@@ -79,6 +79,7 @@ export default function SignUp() {
             else navigate("/login");
             return;
         } catch (e) {
+            setIsLoading(false);
             setError(["*OTP : " + e.message]);
             return;
         }
