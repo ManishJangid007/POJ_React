@@ -9,19 +9,11 @@ import SettingsPage from "../pages/SettingsPage/SettingsPage";
 import DietPlannerPage from "../pages/DietPlannerPage/DietPlannerPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import MainLayout from "../layouts/MainLayout";
-import Devices from "../utils/Device";
-
 
 export default function AppRoutes() {
-    const [SidebarExpanded, setSidebarExpanded] = React.useState(false);
-    const Device = Devices();
     return (
         <Routes>
-            <Route path="/" element={<MainLayout
-                device={Device}
-                sidebarExpanded={SidebarExpanded}
-                setSidebarExpanded={setSidebarExpanded}
-            />}>
+            <Route path="/" element={<MainLayout />}>
                 <Route index element={<HomePage />} />
                 <Route path="/favourite" element={<FavouritePage />} />
                 <Route path="/settings" element={<SettingsPage />} />

@@ -5,7 +5,9 @@
     padding: 10px 12px;
 }
 
-.header h1, h3, h4{
+.header h1,
+h3,
+h4 {
     margin: 0px;
 }
 
@@ -21,4 +23,10 @@
     height: 1.8em;
     width: auto;
     margin-right: 10px;
+}
+
+@media only screen and (min-width: 550px) {
+    .header {
+        display: none;
+    }
 }

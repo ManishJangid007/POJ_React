@@ -12,27 +12,23 @@ import AboutIco from "../../assets/icons/about.png";
 import AboutActiveIco from "../../assets/icons/about_a.png";
 import Blob from "../../assets/blobs/blob3.png";
 import BackIco from "../../assets/icons/back.png";
-import { useLocation } from "react-router-dom";
 
 export default function Sidebar(props) {
-    const location = useLocation();
-    const path = location.pathname;
     return (
         <div className={`sidebar--background ${props.expanded ? "sidebar--expanded" :
-                "sidebar--collapse"
+            "sidebar--collapse"
             }`}>
             <div className={`sidebar ${props.expanded ? "sidebar--expanded" :
-                    "sidebar--collapse"
+                "sidebar--collapse"
                 }`}>
                 <div className="sidebar--heading">
                     <h1 className="sidebar--title">Plate of Joy</h1>
-                    {!props.device.isDesktop &&
-                        <img
-                            src={BackIco}
-                            alt="back icon"
-                            onClick={props.collapse}
-                        />
-                    }
+                    <img
+                        src={BackIco}
+                        alt="back icon"
+                        onClick={props.collapse}
+                        className="sidebar--backicon"
+                    />
                 </div>
                 <Item
                     active_icon={HomeActiveIco}

@@ -8,34 +8,25 @@ import "./MainLayout.css";
 import { Outlet } from "react-router-dom";
 
 export default function MainLayout(props) {
+    const [SidebarExpanded, setSidebarExpanded] = React.useState(false);
     return (
         <div className="mainlayout">
-            {
-                props.device.isDesktop ?
-                    <Sidebar
-                        expanded={true}
-                        collapse={() => { }}
-                        device={props.device}
-                    /> :
-                    <Sidebar
-                        expanded={props.sidebarExpanded}
-                        collapse={() => props.setSidebarExpanded(false)}
-                        device={props.device}
-                    />
-            }
+            <Sidebar
+                expanded={SidebarExpanded}
+                collapse={() => setSidebarExpanded(false)}
+            />
 
             <div className="mainlayout--maincontent">
-                {!props.device.isDesktop && <Background />}
-                {props.device.isMobile && <Header />}
+                <Background />
+                <Header />
                 <SearchBar
-                    expandSidebar={() => props.setSidebarExpanded(true)}
-                    device={props.device}
+                    expandSidebar={() => setSidebarExpanded(true)}
                 />
-                {!props.hideFilter &&
-                    <div>
-                        <Filters />
-                    </div>
-                }
+
+                <div>
+                    <Filters />
+                </div>
+
                 <div className="mainlayout--content">
                     <Outlet />
                 </div>
