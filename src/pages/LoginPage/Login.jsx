@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Background from "../../components/Background/Background";
 import BackIco from "../../assets/icons/back_white.png";
 import POJIco from "../../assets/icons/poj.png";
@@ -18,6 +18,14 @@ export default function Login() {
             password: ""
         }
     );
+
+    useEffect(() => {
+        axios.get('/api/user')
+            .then(res => {
+                if (res.data.isAuthenticated) navigate("/");
+                console.log(res);
+            })
+    }, []);
 
     function handelChange(event) {
         setFormData(prevData => ({

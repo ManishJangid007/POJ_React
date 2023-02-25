@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Background from "../../components/Background/Background";
 import BackIco from "../../assets/icons/back_white.png";
 import POJIco from "../../assets/icons/poj.png";
@@ -11,6 +11,13 @@ import "./SignUp.css";
 
 export default function SignUp() {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get('/api/user')
+            .then(res => {
+                if (res.data.isAuthenticated) navigate("/");
+            })
+    }, []);
 
     const [nextStep, setNextStep] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
