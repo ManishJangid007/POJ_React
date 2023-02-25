@@ -96,6 +96,10 @@
     margin: 20px;
 }
 
+.loginpage--bottom--text {
+    padding: 20px 0px;
+}
+
 .loginpage--bottom--text h4 {
     font-weight: 500;
     font-size: 16px;

@@ -6,13 +6,14 @@ import { useNavigate } from "react-router-dom";
 import validateData from "./validateData";
 import SignUpForm from "./SignUpForm";
 import OtpForm from "./OtpForm";
+import axios from "axios";
 import "./SignUp.css";
 
 export default function SignUp() {
     const navigate = useNavigate();
 
     const [nextStep, setNextStep] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         firstname: "",
         lastname: "",
@@ -34,21 +35,53 @@ export default function SignUp() {
         }))
     }
 
-    function handelSubmit(event) {
+    async function handelSubmit(event) {
         event.preventDefault();
+        setError([]);
         const errors = validateData(formData);
-        errors ? setError(errors) :
-            setNextStep(true);
+        if (errors) {
+            setError(errors);
+        } else {
+            try {
+                setIsLoading(true);
+                const res = await axios.post('/api/user/create', formData)
+                setIsLoading(false);
+                if (res.data.err) {
+                    setError(res.data.errs);
+                    return
+                } else {
+                    setNextStep(true)
+                }
+            } catch (e) {
+                setError(["*Error : " + e.message]);
+            }
+        }
     }
 
     function handeOtpChange(event) {
         setOtp(event.target.value.trim());
     }
 
-    function handelOtpSubmit(event) {
+    async function handelOtpSubmit(event) {
         event.preventDefault();
-        setError(["*OTP : Invalid OTP"]);
-        return
+        if (otp.length <= 0) {
+            setError(["*OTP : Enter OTP"]);
+            return;
+        }
+
+        try {
+            setIsLoading(true);
+            const res = await axios.post('/api/user/verify', {
+                code: otp,
+            })
+            setIsLoading(false);
+            if (res.data.err) setError(res.data.errs);
+            else navigate("/login");
+            return;
+        } catch (e) {
+            setError(["*OTP : " + e.message]);
+            return;
+        }
     }
 
     return (
@@ -77,6 +110,7 @@ export default function SignUp() {
                                 handelChange={handelChange}
                                 handelSubmit={handelSubmit}
                                 error={error}
+                                isLoading={isLoading}
                                 navigate={navigate}
                             />
                             :
@@ -86,7 +120,7 @@ export default function SignUp() {
                                 error={error}
                                 otp={otp}
                                 email={formData.email}
-                                navigate={navigate}
+                                isLoading={isLoading}
                             />
                     }
                 </div>

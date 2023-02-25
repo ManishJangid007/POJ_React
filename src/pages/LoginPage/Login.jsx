@@ -4,11 +4,13 @@ import BackIco from "../../assets/icons/back_white.png";
 import POJIco from "../../assets/icons/poj.png";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import Loading from "../../components/Loading/Loading";
 
 export default function Login() {
     const navigate = useNavigate();
 
     const [error, setError] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState(
         {
             username: "",
@@ -73,8 +75,10 @@ export default function Login() {
                             error.length > 0 && error.map((err, i) => <p key={i} >{err}</p>)
                         }
 
-                        <button className="loginpage--loginbtn">Login</button>
-
+                        {
+                            isLoading ? <Loading /> :
+                                <button className="loginpage--loginbtn">Login</button>
+                        }
                     </form>
 
                     <div className="loginpage--bottom--text">

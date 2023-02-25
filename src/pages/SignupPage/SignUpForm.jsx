@@ -1,4 +1,5 @@
 import React from "react"
+import Loading from "../../components/Loading/Loading";
 
 export default function SignUpForm(
     {
@@ -6,7 +7,8 @@ export default function SignUpForm(
         handelChange,
         formData,
         error,
-        navigate
+        navigate,
+        isLoading
     }
 ) {
     return (
@@ -160,9 +162,17 @@ export default function SignUpForm(
                             )
                         }
                     </div>
-
                 </div>
-                <button className="signup--loginbtn">Sign Up</button>
+                {
+                    error.length > 0 && error.map((err, i) =>
+                        err.startsWith("*Error") ? <p key={i}>{err}</p> : ''
+                    )
+                }
+                {
+                    isLoading ?
+                        <Loading /> :
+                        <button className="signup--loginbtn">Sign Up</button>
+                }
             </form>
             <div className="signup--bottom--text">
                 <h4>Already Have a Account ? <span onClick={() => navigate("/login")}>Login</span></h4>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from "../../components/Loading/Loading";
 
 export default function OtpForm(
     {
@@ -7,7 +8,7 @@ export default function OtpForm(
         error,
         otp,
         email,
-        navigate
+        isLoading
     }
 ) {
     return (
@@ -29,7 +30,11 @@ export default function OtpForm(
                     )
                 }
             </div>
-            <button className="signup--loginbtn">Verify</button>
+            {
+                isLoading ?
+                    <Loading /> :
+                    <button className="signup--loginbtn">Verify</button>
+            }
             <h4 className="signup--otp--msg">Email has been sent to <span>{email}</span></h4>
         </form>
     )

@@ -144,7 +144,7 @@ select:focus {
     color: #161616;
 }
 
-.signup--fielddiv p {
+.signup--form p {
     color: lightcoral;
     font-weight: 500;
     font-size: 1em;
