@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProfileIco.css";
 import PersonIco from "../../assets/icons/person.png"
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import axios from "axios";
 export default function ProfileIco() {
     const navigate = useNavigate();
 
-    const { isLoading, error, data } = useQuery('userData', () =>
+    const { isLoading, error, data, refetch } = useQuery('userData', () =>
         axios.get('/api/user')
             .then(res => res.data)
     );
@@ -17,12 +17,13 @@ export default function ProfileIco() {
     async function logoutUser() {
         try {
             const res = await axios.get("/api/user/logout");
-            window.location.reload(false);
+            refetch();
             return res;
         } catch (e) {
             console.log(e.message);
         }
     }
+
     return (
         <div className="profileico">
             <div className="header--user">
