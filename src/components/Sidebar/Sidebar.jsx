@@ -18,53 +18,51 @@ export default function Sidebar(props) {
     const location = useLocation();
     const path = location.pathname;
     return (
-        <div className={`sidebar--background ${
-            props.expanded ? "sidebar--expanded" :
-            "sidebar--collapse"
-        }`}>
-            <div className={`sidebar ${
-            props.expanded ? "sidebar--expanded" :
-            "sidebar--collapse"
-        }`}>
+        <div className={`sidebar--background ${props.expanded ? "sidebar--expanded" :
+                "sidebar--collapse"
+            }`}>
+            <div className={`sidebar ${props.expanded ? "sidebar--expanded" :
+                    "sidebar--collapse"
+                }`}>
                 <div className="sidebar--heading">
                     <h1 className="sidebar--title">Plate of Joy</h1>
-                    {!props.device.isDesktop && 
-                        <img 
-                            src={BackIco} 
-                            alt="back icon" 
-                            onClick={props.collapse} 
+                    {!props.device.isDesktop &&
+                        <img
+                            src={BackIco}
+                            alt="back icon"
+                            onClick={props.collapse}
                         />
                     }
                 </div>
-                <Item 
+                <Item
                     active_icon={HomeActiveIco}
                     icon={HomeIco}
                     title="Home"
                     path="/"
                 />
-                <hr/>
-                <Item 
+                <hr />
+                <Item
                     active_icon={FoodIcon}
                     icon={FoodIcon}
                     title="Diet Planner"
                     path="/diet_planner"
                 />
-                <hr/>
-                <Item 
+                <hr />
+                <Item
                     active_icon={HeartActiveIco}
                     icon={HeartIco}
                     title="Favourite Recipes"
                     path="/favourite"
                 />
-                <hr/>
-                <Item 
+                <hr />
+                <Item
                     active_icon={GearActiveIco}
                     icon={GearIco}
                     title="Settings"
                     path="/settings"
                 />
-                <hr/>
-                <Item 
+                <hr />
+                <Item
                     active_icon={AboutActiveIco}
                     icon={AboutIco}
                     title="About Us"

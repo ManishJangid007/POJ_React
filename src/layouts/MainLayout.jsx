@@ -5,20 +5,21 @@ import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import Filters from "../components/Filters/Filters";
 import "./MainLayout.css";
+import { Outlet } from "react-router-dom";
 
 export default function MainLayout(props) {
     return (
         <div className="mainlayout">
             {
-                props.device.isDesktop ? 
+                props.device.isDesktop ?
                     <Sidebar
                         expanded={true}
-                        collapse={()=>{}}
+                        collapse={() => { }}
                         device={props.device}
-                    /> : 
-                    <Sidebar 
-                        expanded={props.sidebarExpanded} 
-                        collapse={() => props.setSidebarExpanded(false)} 
+                    /> :
+                    <Sidebar
+                        expanded={props.sidebarExpanded}
+                        collapse={() => props.setSidebarExpanded(false)}
                         device={props.device}
                     />
             }
@@ -26,17 +27,17 @@ export default function MainLayout(props) {
             <div className="mainlayout--maincontent">
                 {!props.device.isDesktop && <Background />}
                 {props.device.isMobile && <Header />}
-                <SearchBar 
+                <SearchBar
                     expandSidebar={() => props.setSidebarExpanded(true)}
                     device={props.device}
                 />
-                {!props.hideFilter && 
+                {!props.hideFilter &&
                     <div>
                         <Filters />
                     </div>
                 }
                 <div className="mainlayout--content">
-                    {props.children}
+                    <Outlet />
                 </div>
             </div>
         </div>
