@@ -11,19 +11,12 @@
     margin-bottom: 2em;
 }
 
-.dishcard > img {
+.dishcard>img {
     height: 55%;
     width: 100%;
-    object-fit:cover;
+    object-fit: cover;
     border-radius: 15px 15px 0px 0px;
-}
-
-.dishcard h2 {
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 31px;
-    color: #373737;
-    margin: 15px 0px;
+    cursor: pointer;
 }
 
 .dishcard h4 {
@@ -45,9 +38,26 @@
 .dishcard--von {
     width: 26px;
     height: 26px;
-    background: #82B681;
     border-radius: 15px;
     margin-left: auto;
+}
+
+.dishcard--titlediv {
+    height: 5em;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dishcard--titlediv h2 {
+    font-weight: 500;
+    font-size: 1.2em;
+    line-height: 24px;
+    color: #373737;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 550px) {

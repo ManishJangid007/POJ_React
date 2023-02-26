@@ -23,7 +23,6 @@ export default function Login() {
         axios.get('/api/user')
             .then(res => {
                 if (res.data.isAuthenticated) navigate("/");
-                console.log(res);
             })
     }, []);
 

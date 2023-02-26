@@ -11,7 +11,10 @@ export default function ProfileIco() {
 
     const { isLoading, error, data, refetch } = useQuery('userData', () =>
         axios.get('/api/user')
-            .then(res => res.data)
+            .then(res => res.data),
+        {
+            refetchOnWindowFocus: false,
+        }
     );
 
     async function logoutUser() {
