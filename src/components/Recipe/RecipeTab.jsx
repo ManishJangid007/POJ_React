@@ -16,12 +16,10 @@ export default function RecipeTab({ data }) {
     const [liked, setLiked] = React.useState(false);
     const like = () => setLiked(prev => !prev);
 
-    const suggestedRecipeData = useQuery("getRecipes",
-        () => axios.get(`/api/spn/similar_recipes/${data.id}`)
+    const suggestedRecipeData = useQuery("getSuggestedRecipes",
+        () => axios.get("/api/spn/similar_recipes")
             .then(res => res.data)
     )
-
-    console.log(suggestedRecipeData.data);
 
     return (
         <div className="recipetab">
@@ -67,6 +65,7 @@ export default function RecipeTab({ data }) {
                         </div>
                     </div>
                     <div className="recipetab--suggestion">
+                        <h3 className="recipetab--alsosee">Also See :-</h3>
                         {suggestedRecipeData.isLoading ? <Loading /> :
                             suggestedRecipeData.data.success ?
                                 suggestedRecipeData.data.recipes.map(

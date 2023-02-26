@@ -152,6 +152,12 @@
     align-items: center;
 }
 
+.recipetab--alsosee {
+    font-weight: 500;
+    align-self: flex-start;
+    margin: 10px 40px;
+}
+
 @media only screen and (max-width: 930px) {
     .recipetab--suggestion {
         border: none;
