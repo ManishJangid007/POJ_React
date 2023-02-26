@@ -3,28 +3,39 @@ import CloseIco from "../../assets/icons/close.png";
 import { useNavigate } from "react-router-dom";
 import HeartIco from "../../assets/icons/heart_white.png";
 import HeartFilledIco from "../../assets/icons/heart_filled_small.png";
-import Food1 from "../../assets/images/food2.jpg";
 import TimeIco from "../../assets/icons/time.png";
 import SuggestedRecipe from "./SuggestedRecipe";
+import axios from "axios";
+import { useQuery } from "react-query";
 import "./RecipeTab.css";
+import Loading from "../Loading/Loading";
+import VegNonVeg from "../../utils/VegNonVeg";
 
-export default function RecipeTab() {
+export default function RecipeTab({ data }) {
     const navigate = useNavigate();
     const [liked, setLiked] = React.useState(false);
     const like = () => setLiked(prev => !prev);
-    return  (
+
+    const suggestedRecipeData = useQuery("getRecipes",
+        () => axios.get(`/api/spn/similar_recipes/${data.id}`)
+            .then(res => res.data)
+    )
+
+    console.log(suggestedRecipeData.data);
+
+    return (
         <div className="recipetab">
             <div className="recipetab--innerdiv">
                 <div className="recipetab--head">
-                        <div className="recipetab--blackcircle">
-                            <img src={CloseIco} alt="close icon" onClick={() => navigate(-1)} />
-                        </div>
-                        <div className="recipetab--von"></div>
+                    <div className="recipetab--blackcircle">
+                        <img src={CloseIco} alt="close icon" onClick={() => navigate(-1)} />
+                    </div>
+                    <div className="recipetab--von" style={VegNonVeg(data.vegetarian)}></div>
                 </div>
                 <div className="recipetab--maindiv">
                     <div className="recipetab--recipe">
                         <div className="recipetab--imgbase">
-                            <img src={Food1} alt="Food Img" />
+                            <img src={data.image} alt="Food Img" />
                             <div className="recipetab--imgforeground">
                                 <div className="recipetab--blackcircle" onClick={like}>
                                     <img src={liked ? HeartFilledIco : HeartIco} alt="heart icon" />
@@ -32,31 +43,42 @@ export default function RecipeTab() {
                             </div>
                         </div>
                         <div className="recipetab--dishtitle">
-                            <h2 className="recipetab--title">Dish Name</h2>
+                            <h2 className="recipetab--title">{data.title}</h2>
                             <img src={TimeIco} alt="time png" />
-                            <h4 className="recipetab--time">45 mins</h4>
+                            <h4 className="recipetab--time">{`${data.readyInMinutes} Mins`}</h4>
                         </div>
                         <div className="recipetab--ingredients">
                             <h2>Ingredients :-</h2>
                             <ol>
-                                <li>Lorem.</li>
-                                <li>Voluptates.</li>
-                                <li>Obcaecati!</li>
-                                <li>Facere.</li>
-                                <li>Delectus.</li>
+                                {
+                                    data.extendedIngredients.map(
+                                        ingre => <li key={ingre.id}>{ingre.original}</li>
+                                    )
+                                }
                             </ol>
                         </div>
                         <div className="recipetab--actualrecipe">
-                            <h2>Recipe :-</h2>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum animi quos sit praesentium cumque corrupti quasi suscipit minus deserunt non ducimus perspiciatis hic voluptate vero architecto illum vitae expedita sed, doloribus odio beatae. Aperiam itaque sint esse fugiat. Rem obcaecati accusantium inventore ut! Atque nihil vel est aliquid quis ab.</p>
+                            <h2>Instructions :-</h2>
+                            <p dangerouslySetInnerHTML={{ __html: data.instructions }}></p>
+                        </div>
+                        <div className="recipetab--actualrecipe">
+                            <h2>Summay :-</h2>
+                            <p dangerouslySetInnerHTML={{ __html: data.summary }}></p>
                         </div>
                     </div>
                     <div className="recipetab--suggestion">
-                        <SuggestedRecipe />
-                        <SuggestedRecipe />
-                        <SuggestedRecipe />
-                        <SuggestedRecipe />
-                        <SuggestedRecipe />
+                        {suggestedRecipeData.isLoading ? <Loading /> :
+                            suggestedRecipeData.data.success ?
+                                suggestedRecipeData.data.recipes.map(
+                                    recipe => <SuggestedRecipe
+                                        key={recipe.id}
+                                        data={recipe}
+                                    />
+                                )
+                                :
+                                <Loading />
+                        }
+
                     </div>
                 </div>
             </div>

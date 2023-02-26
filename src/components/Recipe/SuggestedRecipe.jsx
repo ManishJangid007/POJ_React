@@ -1,19 +1,28 @@
 import React from 'react';
-import Food from "../../assets/images/food2.jpg"
 import "./SuggestedRecipe.css";
+import VegNonVeg from '../../utils/VegNonVeg';
 
-export default function SuggestedRecipe(){
+export default function SuggestedRecipe({ data }) {
+    const simplifiedTitle = () => {
+        if (data.title.length < 15) {
+            return data.title
+        } else {
+            return `${data.title.substring(0, 15)}...`
+        }
+    }
+
     return (
-        <div className="suggested--recipe">
-            <img src={Food} alt="food" />
-            <div className="suggested--title">
-                <h2>A long long dish name
-                    which does not fit in this box</h2>
-                <div className="suggested--bottom--row">
-                    <h4>45 mins</h4>
-                    <div className="suggested--von"></div>
+        <a className='suggested--atag' onClick={() => { }}>
+            <div className="suggested--recipe">
+                <img src={data.image} alt="food" />
+                <div className="suggested--title">
+                    <h2>{simplifiedTitle()}</h2>
+                    <div className="suggested--bottom--row">
+                        <h4>{`${data.readyInMinutes} Mins`}</h4>
+                        <div className="suggested--von" style={VegNonVeg(data.vegetarian)}></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
