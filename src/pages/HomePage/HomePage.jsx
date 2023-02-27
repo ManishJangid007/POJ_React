@@ -4,13 +4,11 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import Loading from "../../components/Loading/Loading";
 import { useNavigate } from "react-router-dom";
-import "./HomePage.css";
 import NotFound from "../NotFound/NotFound";
+import "./HomePage.css";
 
 export default function HomePage() {
   const navigate = useNavigate();
-
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const { isLoading, error, data } = useQuery("getRecipes", () => axios.get("/api/spn/random_recipes")
     .then(res => res.data),
@@ -20,11 +18,6 @@ export default function HomePage() {
       keepPreviousData: true
     }
   );
-
-  useEffect(() => {
-    axios.get("/api/user")
-      .then(res => setIsAuthenticated(res.data.isAuthenticated))
-  }, [])
 
   return (
     isLoading ? <Loading /> :
@@ -36,7 +29,6 @@ export default function HomePage() {
                 key={rec.id}
                 data={rec}
                 onClick={() => navigate(`/recipe/${rec.id}`)}
-                showLike={isAuthenticated}
               />)
           }
         </main> :

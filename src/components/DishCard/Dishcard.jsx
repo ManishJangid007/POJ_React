@@ -1,13 +1,9 @@
 import React from "react";
-import "./DishCard.css";
-import Heart from "../../assets/icons/heart.png"
 import DefaultFoodImage from "../../assets/images/default_food.jpg"
-import HeartFilled from "../../assets/icons/heart_filled.png"
 import VegNonVeg from "../../utils/VegNonVeg";
+import "./DishCard.css";
 
 export default function DishCard(props) {
-    const [liked, setLiked] = React.useState(false);
-
     const simplifiedTitle = () => {
         if (props.data.title.length < 36) {
             return props.data.title
@@ -29,11 +25,6 @@ export default function DishCard(props) {
             </div>
             <h4>{`${props.data.readyInMinutes} Mins`}</h4>
             <div className="dishcard--lastrow">
-                {props.showLike && <img
-                    src={liked ? HeartFilled : Heart}
-                    alt="heart icon"
-                    onClick={() => setLiked(prev => !prev)}
-                />}
                 <div className="dishcard--von" style={VegNonVeg(props.data.vegetarian)}></div>
             </div>
         </div>
