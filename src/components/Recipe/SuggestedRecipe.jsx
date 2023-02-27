@@ -1,6 +1,6 @@
 import React from 'react';
 import VegNonVeg from '../../utils/VegNonVeg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "./SuggestedRecipe.css";
 
 export default function SuggestedRecipe({ data }) {
@@ -14,8 +14,8 @@ export default function SuggestedRecipe({ data }) {
     }
 
     return (
-        <a className='suggested--atag' >
-            <div className="suggested--recipe" onClick={() => navigate(`/recipe/${data.id}`)}>
+        <a href={`/recipe/${data.id}`} className="suggested--atag">
+            <div className="suggested--recipe">
                 <img src={data.image} alt="food" />
                 <div className="suggested--title">
                     <h2>{simplifiedTitle()}</h2>

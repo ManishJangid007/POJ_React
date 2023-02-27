@@ -11,7 +11,9 @@ export default function Recipe() {
     const { id } = useParams();
 
     const { isLoading, error, data, refetch } = useQuery("getRecipe", () => axios.get(`/api/spn/recipe/${id}`)
-        .then(res => res.data)
+        .then(res => res.data), {
+        refetchOnWindowFocus: false
+    }
     );
 
     useEffect(() => {

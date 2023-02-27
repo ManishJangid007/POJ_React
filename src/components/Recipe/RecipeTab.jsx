@@ -1,5 +1,5 @@
 import React from "react";
-import CloseIco from "../../assets/icons/close.png";
+import BackIco from "../../assets/icons/back_white.png";
 import { useNavigate } from "react-router-dom";
 import HeartIco from "../../assets/icons/heart_white.png";
 import HeartFilledIco from "../../assets/icons/heart_filled_small.png";
@@ -18,7 +18,10 @@ export default function RecipeTab({ data }) {
 
     const suggestedRecipeData = useQuery("getSuggestedRecipes",
         () => axios.get("/api/spn/similar_recipes")
-            .then(res => res.data)
+            .then(res => res.data),
+        {
+            refetchOnWindowFocus: false,
+        }
     )
 
     return (
@@ -26,7 +29,7 @@ export default function RecipeTab({ data }) {
             <div className="recipetab--innerdiv">
                 <div className="recipetab--head">
                     <div className="recipetab--blackcircle">
-                        <img src={CloseIco} alt="close icon" onClick={() => navigate(-1)} />
+                        <img src={BackIco} alt="close icon" onClick={() => navigate(-1)} />
                     </div>
                     <div className="recipetab--von" style={VegNonVeg(data.vegetarian)}></div>
                 </div>
