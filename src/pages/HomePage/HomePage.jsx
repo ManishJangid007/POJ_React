@@ -26,8 +26,6 @@ export default function HomePage() {
       .then(res => setIsAuthenticated(res.data.isAuthenticated))
   }, [])
 
-  console.log(isAuthenticated);
-
   return (
     isLoading ? <Loading /> :
       data.success ?

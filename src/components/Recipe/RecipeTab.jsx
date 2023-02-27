@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BackIco from "../../assets/icons/back_white.png";
 import { useNavigate } from "react-router-dom";
 import HeartIco from "../../assets/icons/heart_white.png";
@@ -10,12 +10,12 @@ import { useQuery } from "react-query";
 import Loading from "../Loading/Loading";
 import VegNonVeg from "../../utils/VegNonVeg";
 import DefaultFoodImage from "../../assets/images/default_food.jpg"
+import { toast } from "react-toastify";
 import "./RecipeTab.css";
 
 export default function RecipeTab({ data, showLike }) {
     const navigate = useNavigate();
-    const [liked, setLiked] = React.useState(false);
-    const like = () => setLiked(prev => !prev);
+    const [liked, setLiked] = useState(false);
 
     const suggestedRecipeData = useQuery("getSuggestedRecipes",
         () => axios.get("/api/spn/similar_recipes")
@@ -24,6 +24,29 @@ export default function RecipeTab({ data, showLike }) {
             refetchOnWindowFocus: false,
         }
     )
+
+    useEffect(() => {
+        axios.get(`/api/spn/recipe_isliked/${data.id}`)
+            .then(res => setLiked(res.data.liked))
+    }
+        , []);
+
+    async function handelLike() {
+        if (!liked) {
+            const res = await axios.get(`/api/spn/like_recipe/${data.id}`);
+            if (res.data.success) {
+                setLiked(true)
+                toast("Recipe Added to Favorite ❤️")
+            }
+        } else {
+            const res = await axios.get(`/api/spn/dislike_recipe/${data.id}`);
+            if (res.data.success) {
+                setLiked(false);
+                toast("Recipe Removed from Favorite 💔")
+            }
+
+        }
+    }
 
     return (
         <div className="recipetab">
@@ -40,7 +63,7 @@ export default function RecipeTab({ data, showLike }) {
                             <img src={data.image || DefaultFoodImage} alt="Food Img" />
                             {
                                 showLike && <div className="recipetab--imgforeground">
-                                    <div className="recipetab--blackcircle" onClick={like}>
+                                    <div className="recipetab--blackcircle" onClick={handelLike}>
                                         <img src={liked ? HeartFilledIco : HeartIco} alt="heart icon" />
                                     </div>
                                 </div>

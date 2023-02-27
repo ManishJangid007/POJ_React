@@ -4,8 +4,9 @@ import Background from "../components/Background/Background";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import Filters from "../components/Filters/Filters";
-import "./MainLayout.css";
 import { Outlet } from "react-router-dom";
+import CustomToast from "../components/CustomToast/CustomToast";
+import "./MainLayout.css";
 
 export default function MainLayout(props) {
     const [SidebarExpanded, setSidebarExpanded] = React.useState(false);
@@ -31,6 +32,7 @@ export default function MainLayout(props) {
                     <Outlet />
                 </div>
             </div>
+            <CustomToast />
         </div>
     )
 }

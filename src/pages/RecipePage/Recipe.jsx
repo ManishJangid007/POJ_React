@@ -27,8 +27,6 @@ export default function Recipe() {
             .then(res => setIsAuthenticated(res.data.isAuthenticated))
     }, [])
 
-    console.log("User Authenticated :", isAuthenticated);
-
     return (
         isLoading ?
             <Loading /> :
