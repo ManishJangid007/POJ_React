@@ -7,11 +7,12 @@ import TimeIco from "../../assets/icons/time.png";
 import SuggestedRecipe from "./SuggestedRecipe";
 import axios from "axios";
 import { useQuery } from "react-query";
-import "./RecipeTab.css";
 import Loading from "../Loading/Loading";
 import VegNonVeg from "../../utils/VegNonVeg";
+import DefaultFoodImage from "../../assets/images/default_food.jpg"
+import "./RecipeTab.css";
 
-export default function RecipeTab({ data }) {
+export default function RecipeTab({ data, showLike }) {
     const navigate = useNavigate();
     const [liked, setLiked] = React.useState(false);
     const like = () => setLiked(prev => !prev);
@@ -36,12 +37,14 @@ export default function RecipeTab({ data }) {
                 <div className="recipetab--maindiv">
                     <div className="recipetab--recipe">
                         <div className="recipetab--imgbase">
-                            <img src={data.image} alt="Food Img" />
-                            <div className="recipetab--imgforeground">
-                                <div className="recipetab--blackcircle" onClick={like}>
-                                    <img src={liked ? HeartFilledIco : HeartIco} alt="heart icon" />
+                            <img src={data.image || DefaultFoodImage} alt="Food Img" />
+                            {
+                                showLike && <div className="recipetab--imgforeground">
+                                    <div className="recipetab--blackcircle" onClick={like}>
+                                        <img src={liked ? HeartFilledIco : HeartIco} alt="heart icon" />
+                                    </div>
                                 </div>
-                            </div>
+                            }
                         </div>
                         <div className="recipetab--dishtitle">
                             <h2 className="recipetab--title">{data.title}</h2>

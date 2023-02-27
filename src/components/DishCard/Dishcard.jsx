@@ -1,6 +1,7 @@
 import React from "react";
 import "./DishCard.css";
 import Heart from "../../assets/icons/heart.png"
+import DefaultFoodImage from "../../assets/images/default_food.jpg"
 import HeartFilled from "../../assets/icons/heart_filled.png"
 import VegNonVeg from "../../utils/VegNonVeg";
 
@@ -18,7 +19,7 @@ export default function DishCard(props) {
     return (
         <div className="dishcard">
             <img
-                src={props.data.image}
+                src={props.data.image || DefaultFoodImage}
                 alt="Food"
                 onClick={props.onClick} />
             <div className="dishcard--titlediv">
@@ -28,11 +29,11 @@ export default function DishCard(props) {
             </div>
             <h4>{`${props.data.readyInMinutes} Mins`}</h4>
             <div className="dishcard--lastrow">
-                <img
+                {props.showLike && <img
                     src={liked ? HeartFilled : Heart}
                     alt="heart icon"
                     onClick={() => setLiked(prev => !prev)}
-                />
+                />}
                 <div className="dishcard--von" style={VegNonVeg(props.data.vegetarian)}></div>
             </div>
         </div>

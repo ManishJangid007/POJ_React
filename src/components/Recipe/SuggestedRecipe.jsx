@@ -1,10 +1,9 @@
 import React from 'react';
 import VegNonVeg from '../../utils/VegNonVeg';
-import { useNavigate, Link } from 'react-router-dom';
+import DefaultFoodImage from "../../assets/images/default_food.jpg"
 import "./SuggestedRecipe.css";
 
 export default function SuggestedRecipe({ data }) {
-    const navigate = useNavigate();
     const simplifiedTitle = () => {
         if (data.title.length < 35) {
             return data.title
@@ -16,7 +15,7 @@ export default function SuggestedRecipe({ data }) {
     return (
         <a href={`/recipe/${data.id}`} className="suggested--atag">
             <div className="suggested--recipe">
-                <img src={data.image} alt="food" />
+                <img src={data.image || DefaultFoodImage} alt="food" />
                 <div className="suggested--title">
                     <h2>{simplifiedTitle()}</h2>
                     <div className="suggested--bottom--row">
