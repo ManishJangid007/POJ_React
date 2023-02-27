@@ -29,17 +29,25 @@ export default function RecipeTab({ data, showLike }) {
         axios.get(`/api/spn/recipe_isliked/${data.id}`)
             .then(res => setLiked(res.data.liked))
     }
-        , []);
+        , [data.id]);
 
     async function handelLike() {
         if (!liked) {
-            const res = await axios.get(`/api/spn/like_recipe/${data.id}`);
+            const res = await axios.post(`/api/spn/like_recipe`, {
+                recipeId: data.id,
+                imageUrl: data.image || undefined,
+                title: data.title,
+                veg: data.vegetarian,
+                time: data.readyInMinutes
+            });
             if (res.data.success) {
                 setLiked(true)
                 toast("Recipe Added to Favorite ❤️")
             }
         } else {
-            const res = await axios.get(`/api/spn/dislike_recipe/${data.id}`);
+            const res = await axios.post(`/api/spn/dislike_recipe`, {
+                recipeId: data.id
+            });
             if (res.data.success) {
                 setLiked(false);
                 toast("Recipe Removed from Favorite 💔")
@@ -79,7 +87,7 @@ export default function RecipeTab({ data, showLike }) {
                             <ol>
                                 {
                                     data.extendedIngredients.map(
-                                        ingre => <li key={ingre.id}>{ingre.original}</li>
+                                        (ingre, id) => <li key={id}>{ingre.original}</li>
                                     )
                                 }
                             </ol>
@@ -95,7 +103,7 @@ export default function RecipeTab({ data, showLike }) {
                     </div>
                     <div className="recipetab--suggestion">
                         <h3 className="recipetab--alsosee">Also See :-</h3>
-                        {suggestedRecipeData.isLoading ? <Loading /> :
+                        {suggestedRecipeData.isFetching ? <Loading /> :
                             suggestedRecipeData.data.success ?
                                 suggestedRecipeData.data.recipes.map(
                                     recipe => <SuggestedRecipe

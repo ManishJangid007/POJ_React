@@ -10,7 +10,7 @@ import "./HomePage.css";
 export default function HomePage() {
   const navigate = useNavigate();
 
-  const { isLoading, error, data } = useQuery("getRecipes", () => axios.get("/api/spn/random_recipes")
+  const { isFetching, error, data } = useQuery("getRecipes", () => axios.get("/api/spn/random_recipes")
     .then(res => res.data),
     {
       refetchOnWindowFocus: false,
@@ -20,7 +20,7 @@ export default function HomePage() {
   );
 
   return (
-    isLoading ? <Loading /> :
+    isFetching ? <Loading /> :
       data.success ?
         <main className="custom--grid">
           {

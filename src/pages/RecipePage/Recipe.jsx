@@ -10,7 +10,8 @@ import "./Recipe.css";
 export default function Recipe() {
     const { id } = useParams();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const { isLoading, error, data, refetch } = useQuery("getRecipe",
+
+    const { data, refetch, isFetching } = useQuery("getRecipe",
         () => axios.get(`/api/spn/recipe/${id}`)
             .then(res => res.data),
         {
@@ -28,7 +29,7 @@ export default function Recipe() {
     }, [])
 
     return (
-        isLoading ?
+        isFetching ?
             <Loading /> :
             data.success ?
                 <RecipeTab
