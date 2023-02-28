@@ -8,7 +8,7 @@ export default function Filter(props) {
 
     return (
         <a className="filter" style={style} href={`/search?query=${props.name}`}>
-            <h3>{props.name}</h3>
+            <label>{props.name}</label>
         </a>
     )
 }

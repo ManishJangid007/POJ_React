@@ -29,7 +29,7 @@ export default function SearchPage() {
         <div className="searchpage">
             {getQuery() ?
                 <>
-                    <h3 className="searchpage--title">Search Results of  "{getQuery()}"</h3>
+                    <label className="searchpage--title">Search Results of  "{getQuery()}"</label>
                     {
                         isFetching ? <Loading /> :
                             data.recipes ?

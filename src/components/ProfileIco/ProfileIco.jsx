@@ -36,13 +36,13 @@ export default function ProfileIco() {
                         error ? <h3>.|.|.</h3> :
                             data.isAuthenticated ?
                                 <>
-                                    <h3>{data.fullName}</h3>
-                                    <h4 onClick={logoutUser}>Logout</h4>
+                                    <label>{data.fullName}</label>
+                                    <button onClick={logoutUser}>Logout</button>
                                 </>
                                 :
                                 <>
-                                    <h3>Guest User</h3>
-                                    <h4 onClick={() => navigate("/login")}>Login</h4>
+                                    <label>Guest User</label>
+                                    <button onClick={() => navigate("/login")}>Login</button>
                                 </>
                 }
 

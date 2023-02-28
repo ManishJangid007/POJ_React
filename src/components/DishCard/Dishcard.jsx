@@ -23,7 +23,7 @@ export default function DishCard(props) {
                     onClick={props.onClick}
                 >{simplifiedTitle()}</h2>
             </div>
-            <h4>{`${props.data.readyInMinutes} Mins`}</h4>
+            <label>{`${props.data.readyInMinutes} Mins`}</label>
             <div className="dishcard--lastrow">
                 <div className="dishcard--von" style={VegNonVeg(props.data.vegetarian)}></div>
             </div>

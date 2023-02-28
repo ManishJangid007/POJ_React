@@ -7,12 +7,7 @@ export default function Filters() {
     const getQuery = () => queryParameters.get('query')
 
     const [query, setQuery] = useState("");
-
-    useEffect(() => {
-        setQuery(getQuery());
-    }, [getQuery()])
-
-    const filters = [
+    const [filters, setFilters] = useState([
         "Italian",
         "Spanish",
         "Chinese",
@@ -27,8 +22,20 @@ export default function Filters() {
         "Paneer",
         "Chicken",
         "Sea Food",
-        "Pasta"
-    ];
+        "Pasta",
+        "Veg"
+    ])
+
+    useEffect(() => {
+        if (filters.includes(getQuery())) {
+            setFilters(prev => {
+                const newFilters = prev.filter(e => e != getQuery());
+                newFilters.unshift(getQuery());
+                return [...newFilters];
+            })
+        }
+        setQuery(getQuery());
+    }, [getQuery()])
 
     return (
         <div className="filters">

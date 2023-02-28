@@ -6,8 +6,8 @@ import "./Background.css"
 export default function Background() {
     return (
         <div className="background">
-            <img src={Blob1} />
-            <img src={Blob2} />
+            <img src={Blob1} alt="blob" />
+            <img src={Blob2} alt="blob" />
         </div>
     )
 }
