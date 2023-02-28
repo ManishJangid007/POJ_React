@@ -3,9 +3,10 @@ import DishCard from '../../components/DishCard/Dishcard';
 import axios from 'axios';
 import Loading from '../../components/Loading/Loading';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import "../HomePage/HomePage.css";
 import "./FavouritePage.css";
-import { useNavigate } from 'react-router-dom';
 
 
 export default function FavouritePage() {
@@ -52,16 +53,8 @@ export default function FavouritePage() {
                     </ErrorMessage>
                 :
                 <ErrorMessage>
-                    <h3>You Still Loged out 😆, Login ! 👉 </h3>
+                    <h3>You Still Loged out 😆, Login ! 👇 </h3>
                     <a href='/login'>Login</a>
                 </ErrorMessage>
-    )
-}
-
-function ErrorMessage(props) {
-    return (
-        <div className='fav--errmsg--div'>
-            {props.children}
-        </div>
     )
 }

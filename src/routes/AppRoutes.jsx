@@ -9,6 +9,7 @@ import SettingsPage from "../pages/SettingsPage/SettingsPage";
 import DietPlannerPage from "../pages/DietPlannerPage/DietPlannerPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import MainLayout from "../layouts/MainLayout";
+import SearchPage from "../pages/SearchPage/SearchPage";
 
 export default function AppRoutes() {
     return (
@@ -21,6 +22,7 @@ export default function AppRoutes() {
                 <Route path="/about_us" element={<AboutPage />} />
                 <Route path="/favourite/recipe/:id" element={<Recipe />} />
                 <Route path="/recipe/:id" element={<Recipe />} />
+                <Route path="/search" element={<SearchPage />} />
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
