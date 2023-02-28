@@ -20,7 +20,7 @@ export default defineConfig({
       manifest: {
         name: "Plate of Joy",
         short_name: "POJ",
-        theme_color: "#ffd7a9",
+        theme_color: "#FFF4D8",
         background_color: "#fafafa",
         display: "standalone",
         scope: "/",
