@@ -25,6 +25,7 @@
     align-items: center;
     flex-direction: column;
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+    position: relative;
 }
 
 .searchpage--searchcard img {
@@ -47,7 +48,6 @@
 .searchcard--gradient {
     height: 100%;
     width: 100%;
-    background: rgb(28, 28, 28);
     background: linear-gradient(0deg, rgba(28, 28, 28, 0.9612219887955182) 0%, rgba(255, 255, 255, 0) 100%);
     position: absolute;
     border-radius: 15px;

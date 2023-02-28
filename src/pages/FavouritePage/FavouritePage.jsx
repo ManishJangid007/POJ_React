@@ -12,7 +12,7 @@ import "./FavouritePage.css";
 export default function FavouritePage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const navigate = useNavigate();
-    const { isLoading, error, data } = useQuery("getFavouriteRecipes",
+    const { isFetching, data } = useQuery("getFavouriteRecipes",
         () => axios.get("/api/spn/favourite_recipes")
             .then(res => res.data),
         {
@@ -26,7 +26,7 @@ export default function FavouritePage() {
     }, []);
 
     return (
-        isLoading ? <Loading /> :
+        isFetching ? <Loading /> :
             isAuthenticated ?
                 data.success ?
                     data.recipes.length > 0 ?
