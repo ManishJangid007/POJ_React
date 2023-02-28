@@ -1,7 +1,10 @@
 import React from "react";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage"
 
 export default function SettingsPage() {
     return (
-        <h1>Settings Page</h1>
+        <ErrorMessage>
+            <h3>! Coming Soon... 👩‍💻🧑‍💻👨‍💻</h3>
+        </ErrorMessage>
     )
 }

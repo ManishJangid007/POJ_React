@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Filter from "./Filter";
 
 export default function Filters() {
+    const [queryParameters] = useSearchParams();
+    const getQuery = () => queryParameters.get('query')
+
+    const [query, setQuery] = useState("");
+
+    useEffect(() => {
+        setQuery(getQuery());
+    }, [getQuery()])
+
+    const filters = [
+        "Italian",
+        "Spanish",
+        "Chinese",
+        "Burger",
+        "Pizza",
+        "Spicy",
+        "Sweet",
+        "Turkish",
+        "Healthy",
+        "Milk Shakes",
+        "Fresh Juices",
+        "Paneer",
+        "Chicken",
+        "Sea Food",
+        "Pasta"
+    ];
+
     return (
         <div className="filters">
-            <Filter name="All" selected={true} />
-            <Filter name="Italian" selected={false} />
-            <Filter name="North Indian" selected={false} />
-            <Filter name="South Indian" selected={false} />
-            <Filter name="Veg" selected={false} />
-            <Filter name="Non-Veg" selected={false} />
+            {filters.map(e => <Filter
+                key={e}
+                name={e}
+                selected={e === query}
+            />)}
         </div>
     )
 }

@@ -1,7 +1,10 @@
 import React from "react";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage"
 
 export default function DietPlannerPage() {
     return (
-        <h1>Diet Planner Page</h1>
+        <ErrorMessage>
+            <h3>! Coming Soon... 👩‍💻🧑‍💻👨‍💻</h3>
+        </ErrorMessage>
     )
 }
