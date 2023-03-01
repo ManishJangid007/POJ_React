@@ -49,7 +49,11 @@ export default function ProfileIco() {
 
             </div>
             <div className="header--profile">
-                <LazyLoadImage src={PersonIco} alt="person icon" />
+                <LazyLoadImage
+                    src={PersonIco}
+                    alt="person icon"
+                    className="header--profile--person"
+                />
             </div>
         </div>
     )

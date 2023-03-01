@@ -40,3 +40,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.header--profile--person {
+    height: 1.5em;
+    width: 1.5em;
+}

@@ -16,12 +16,12 @@
     align-items: center;
 }
 
-.searchbar--img1:first-child {
+.searchbar--img1 {
     height: 14px;
     width: 18px;
 }
 
-.searchba--img2:last-child {
+.searchba--img2 {
     height: 25px;
     width: 25px;
 }

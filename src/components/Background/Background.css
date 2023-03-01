@@ -9,7 +9,7 @@
 
 .background--img {
     width: 180px;
-    height: auto;
+    height: 180px;
 }
 
 .background--img:nth-child(1) {
