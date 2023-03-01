@@ -14,7 +14,7 @@
 
 .pnf--background--blob {
     width: 180px;
-    height: 180px;
+    height: auto;
 }
 
 .pnf--background--blob:nth-child(1) {
