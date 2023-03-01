@@ -22,7 +22,7 @@ export default function FavouritePage() {
     )
 
     useEffect(() => {
-        axios.get('/api/user/')
+        axios.get('/api/user')
             .then(res => {
                 setIsAuthenticated(res.data.isAuthenticated);
                 setIsLoading(false);
