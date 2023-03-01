@@ -3,6 +3,7 @@ import SearchIco from "../../assets/icons/search.png";
 import HambergIco from "../../assets/icons/hamberg.png";
 import ProfileIco from "../ProfileIco/ProfileIco";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./SearchBar.css";
 
 export default function SearchBar(props) {
@@ -16,11 +17,11 @@ export default function SearchBar(props) {
     return (
         <div className="searchbar--upper--div">
             <div className="searchbar">
-                <img
+                <LazyLoadImage
                     src={HambergIco}
                     alt="hamber ico"
                     onClick={props.expandSidebar}
-                    className="searchbar--hamicon"
+                    className="searchbar--hamicon searchbar--img1"
                 />
                 <div className="vl"></div>
                 <form onSubmit={(e) => handelSubmit(e)}>
@@ -33,7 +34,10 @@ export default function SearchBar(props) {
                         autoComplete="off"
                     />
                     <button className="searchbar--searchbtn">
-                        <img src={SearchIco} alt="search ico" />
+                        <LazyLoadImage
+                            src={SearchIco} alt="search ico"
+                            className="searchbar--img2"
+                        />
                     </button>
                 </form>
             </div>

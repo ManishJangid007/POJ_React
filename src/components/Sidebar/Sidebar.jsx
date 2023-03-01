@@ -12,6 +12,7 @@ import AboutIco from "../../assets/icons/about.png";
 import AboutActiveIco from "../../assets/icons/about_a.png";
 import Blob from "../../assets/blobs/blob3.png";
 import BackIco from "../../assets/icons/back.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Sidebar(props) {
     return (
@@ -23,7 +24,7 @@ export default function Sidebar(props) {
                 }`}>
                 <div className="sidebar--heading">
                     <h1 className="sidebar--title">Plate of Joy</h1>
-                    <img
+                    <LazyLoadImage
                         src={BackIco}
                         alt="back icon"
                         onClick={props.collapse}
@@ -64,7 +65,7 @@ export default function Sidebar(props) {
                     title="About Us"
                     path="/about_us"
                 />
-                <img src={Blob} alt="blob" className="sidebar--blob" />
+                <LazyLoadImage src={Blob} alt="blob" className="sidebar--blob" />
             </div>
         </div>
     )

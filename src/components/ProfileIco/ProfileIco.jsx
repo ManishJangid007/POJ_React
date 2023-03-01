@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import "./ProfileIco.css";
+import React from "react";
 import PersonIco from "../../assets/icons/person.png"
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "./ProfileIco.css";
 
 
 export default function ProfileIco() {
@@ -48,7 +49,7 @@ export default function ProfileIco() {
 
             </div>
             <div className="header--profile">
-                <img src={PersonIco} alt="person icon" />
+                <LazyLoadImage src={PersonIco} alt="person icon" />
             </div>
         </div>
     )

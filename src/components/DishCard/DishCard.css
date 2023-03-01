@@ -11,7 +11,7 @@
     margin-bottom: 2em;
 }
 
-.dishcard>img {
+.dishcard--img {
     height: 55%;
     width: 100%;
     object-fit: cover;

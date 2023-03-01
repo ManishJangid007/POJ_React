@@ -7,6 +7,7 @@ import validateData from "./validateData";
 import SignUpForm from "./SignUpForm";
 import OtpForm from "./OtpForm";
 import axios from "axios";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./SignUp.css";
 
 export default function SignUp() {
@@ -99,7 +100,7 @@ export default function SignUp() {
                 {
                     !nextStep ?
                         <div className="signup--blackcircle">
-                            <img src={BackIco} alt="close icon" onClick={() => navigate(-1)} />
+                            <LazyLoadImage src={BackIco} alt="close icon" onClick={() => navigate(-1)} />
                         </div>
                         :
                         <div className="signup--blackcircle--msg">
@@ -108,7 +109,7 @@ export default function SignUp() {
                 }
                 <div className="signup--form">
 
-                    <img src={POJIco} alt="poj icon" />
+                    <LazyLoadImage src={POJIco} alt="poj icon" />
                     <h1>Sign Up</h1>
 
                     {

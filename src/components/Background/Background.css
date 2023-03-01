@@ -7,12 +7,12 @@
     width: 100%;
 }
 
-.background img {
+.background--img {
     width: 180px;
     height: auto;
 }
 
-.background img:nth-child(1) {
+.background--img:nth-child(1) {
     margin-bottom: auto;
     margin-left: auto;
 }

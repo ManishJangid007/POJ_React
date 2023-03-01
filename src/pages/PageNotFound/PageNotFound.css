@@ -12,12 +12,12 @@
     width: 100%;
 }
 
-.pnf--background img {
+.pnf--background--blob {
     width: 180px;
     height: auto;
 }
 
-.pnf--background img:nth-child(1) {
+.pnf--background--blob:nth-child(1) {
     margin-bottom: auto;
     margin-left: auto;
 }

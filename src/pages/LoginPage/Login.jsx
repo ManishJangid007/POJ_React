@@ -4,6 +4,7 @@ import BackIco from "../../assets/icons/back_white.png";
 import POJIco from "../../assets/icons/poj.png";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import axios from "axios";
 import "./Login.css";
 
@@ -61,10 +62,14 @@ export default function Login() {
             <Background />
             <div className="loginpage--maincontent">
                 <div className="login--blackcircle">
-                    <img src={BackIco} alt="close icon" onClick={() => navigate(-1)} />
+                    <LazyLoadImage
+                        src={BackIco}
+                        alt="close icon"
+                        onClick={() => navigate(-1)}
+                    />
                 </div>
                 <div className="loginpage--loginform">
-                    <img src={POJIco} alt="poj icon" />
+                    <LazyLoadImage src={POJIco} alt="poj icon" />
                     <h1>Login</h1>
 
                     <form onSubmit={(e) => handelSubmit(e)}>
@@ -106,7 +111,7 @@ export default function Login() {
                     </form>
 
                     <div className="loginpage--bottom--text">
-                        <h4>Don't Have a Account ? <span onClick={() => navigate("/signup")}>Create one</span></h4>
+                        <h4>Don't Have a Account ? <span onClick={() => navigate("/signup")}>Create one</span> It's Free !</h4>
                     </div>
                 </div>
             </div>

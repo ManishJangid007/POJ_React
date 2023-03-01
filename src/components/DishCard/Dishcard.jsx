@@ -1,6 +1,7 @@
 import React from "react";
 import DefaultFoodImage from "../../assets/images/default_food.jpg"
 import VegNonVeg from "../../utils/VegNonVeg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./DishCard.css";
 
 export default function DishCard(props) {
@@ -14,9 +15,10 @@ export default function DishCard(props) {
 
     return (
         <div className="dishcard">
-            <img
+            <LazyLoadImage
                 src={props.data.image || DefaultFoodImage}
                 alt="Food"
+                className="dishcard--img"
                 onClick={props.onClick} />
             <div className="dishcard--titlediv">
                 <h2

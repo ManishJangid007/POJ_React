@@ -1,6 +1,7 @@
 import React from 'react';
 import VegNonVeg from '../../utils/VegNonVeg';
-import DefaultFoodImage from "../../assets/images/default_food.jpg"
+import DefaultFoodImage from "../../assets/images/default_food.jpg";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import "./SuggestedRecipe.css";
 
 export default function SuggestedRecipe({ data }) {
@@ -15,7 +16,11 @@ export default function SuggestedRecipe({ data }) {
     return (
         <a href={`/recipe/${data.id}`} className="suggested--atag">
             <div className="suggested--recipe">
-                <img src={data.image || DefaultFoodImage} alt="food" />
+                <LazyLoadImage
+                    src={data.image || DefaultFoodImage}
+                    alt="food"
+                    className="suggested--recipe--img"
+                />
                 <div className="suggested--title">
                     <h2>{simplifiedTitle()}</h2>
                     <div className="suggested--bottom--row">

@@ -10,6 +10,7 @@ import { useQuery } from "react-query";
 import Loading from "../Loading/Loading";
 import VegNonVeg from "../../utils/VegNonVeg";
 import DefaultFoodImage from "../../assets/images/default_food.jpg"
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { toast } from "react-toastify";
 import "./RecipeTab.css";
 
@@ -61,25 +62,33 @@ export default function RecipeTab({ data, showLike }) {
             <div className="recipetab--innerdiv">
                 <div className="recipetab--head">
                     <div className="recipetab--blackcircle">
-                        <img src={BackIco} alt="close icon" onClick={() => navigate(-1)} />
+                        <LazyLoadImage src={BackIco} alt="close icon" onClick={() => navigate(-1)} />
                     </div>
                     <div className="recipetab--von" style={VegNonVeg(data.vegetarian)}></div>
                 </div>
                 <div className="recipetab--maindiv">
                     <div className="recipetab--recipe">
                         <div className="recipetab--imgbase">
-                            <img src={data.image || DefaultFoodImage} alt="Food Img" />
+                            <LazyLoadImage
+                                src={data.image || DefaultFoodImage}
+                                alt="Food Img"
+                                className="recipetab--imgbase--img"
+                            />
                             {
                                 showLike && <div className="recipetab--imgforeground">
                                     <div className="recipetab--blackcircle" onClick={handelLike}>
-                                        <img src={liked ? HeartFilledIco : HeartIco} alt="heart icon" />
+                                        <LazyLoadImage src={liked ? HeartFilledIco : HeartIco} alt="heart icon" />
                                     </div>
                                 </div>
                             }
                         </div>
                         <div className="recipetab--dishtitle">
                             <h2 className="recipetab--title">{data.title}</h2>
-                            <img src={TimeIco} alt="time png" />
+                            <LazyLoadImage
+                                src={TimeIco}
+                                alt="time png"
+                                className="recipetab--dishtitle--img"
+                            />
                             <h4 className="recipetab--time">{`${data.readyInMinutes} Mins`}</h4>
                         </div>
                         <div className="recipetab--ingredients">
