@@ -27,10 +27,11 @@ export default function RecipeTab({ data, showLike }) {
     )
 
     useEffect(() => {
-        axios.get(`/api/spn/recipe_isliked/${data.id}`)
-            .then(res => setLiked(res.data.liked))
-    }
-        , [data.id]);
+        if (showLike) {
+            axios.get(`/api/spn/recipe_isliked/${data.id}`)
+                .then(res => setLiked(res.data.liked))
+        }
+    }, [data.id]);
 
     async function handelLike() {
         if (!liked) {

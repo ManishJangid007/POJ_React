@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PersonIco from "../../assets/icons/person.png"
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "react-query";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./ProfileIco.css";
@@ -10,13 +9,22 @@ import "./ProfileIco.css";
 export default function ProfileIco() {
     const navigate = useNavigate();
 
-    const { isLoading, error, data, refetch } = useQuery('userData', () =>
-        axios.get('/api/user')
-            .then(res => res.data),
-        {
-            refetchOnWindowFocus: false,
-        }
-    );
+    const [userData, setUserData] = useState({
+        name: "Guest User",
+        isAuthenticated: false
+    });
+
+    useEffect(() => {
+        axios.get('/api/user/')
+            .then(
+                res => {
+                    setUserData({
+                        name: res.data.fullName,
+                        isAuthenticated: res.data.isAuthenticated
+                    })
+                }
+            )
+    }, []);
 
     async function logoutUser() {
         try {
@@ -32,19 +40,16 @@ export default function ProfileIco() {
         <div className="profileico">
             <div className="header--user">
                 {
-                    isLoading ?
-                        <h3>Getting...</h3> :
-                        error ? <h3>.|.|.</h3> :
-                            data.isAuthenticated ?
-                                <>
-                                    <label>{data.fullName}</label>
-                                    <button onClick={logoutUser}>Logout</button>
-                                </>
-                                :
-                                <>
-                                    <label>Guest User</label>
-                                    <button onClick={() => navigate("/login")}>Login</button>
-                                </>
+                    userData.isAuthenticated ?
+                        <>
+                            <label>{userData.name}</label>
+                            <button onClick={logoutUser}>Logout</button>
+                        </>
+                        :
+                        <>
+                            <label>Guest User</label>
+                            <button onClick={() => navigate("/login")}>Login</button>
+                        </>
                 }
 
             </div>

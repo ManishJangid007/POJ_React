@@ -21,12 +21,9 @@ export default function Recipe() {
 
     useEffect(() => {
         refetch();
-    }, [id]);
-
-    useEffect(() => {
         axios.get("/api/user")
             .then(res => setIsAuthenticated(res.data.isAuthenticated))
-    }, [])
+    }, [id]);
 
     return (
         isFetching ?
