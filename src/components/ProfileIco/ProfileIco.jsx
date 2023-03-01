@@ -28,7 +28,7 @@ export default function ProfileIco() {
 
     async function logoutUser() {
         try {
-            const res = await axios.get("/api/user/logout");
+            const res = await axios.get("/api/user/logout/");
             navigate(0);
             return res;
         } catch (e) {

@@ -21,7 +21,7 @@ export default function Recipe() {
 
     useEffect(() => {
         refetch();
-        axios.get("/api/user")
+        axios.get("/api/user/")
             .then(res => setIsAuthenticated(res.data.isAuthenticated))
     }, [id]);
 

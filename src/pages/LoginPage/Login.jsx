@@ -21,7 +21,7 @@ export default function Login() {
     );
 
     useEffect(() => {
-        axios.get('/api/user')
+        axios.get('/api/user/')
             .then(res => {
                 if (res.data.isAuthenticated) navigate("/");
             })

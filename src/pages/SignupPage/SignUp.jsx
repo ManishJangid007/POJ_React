@@ -14,7 +14,7 @@ export default function SignUp() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('/api/user')
+        axios.get('/api/user/')
             .then(res => {
                 if (res.data.isAuthenticated) navigate("/");
             })
