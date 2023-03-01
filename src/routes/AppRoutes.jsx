@@ -10,6 +10,7 @@ import DietPlannerPage from "../pages/DietPlannerPage/DietPlannerPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import MainLayout from "../layouts/MainLayout";
 import SearchPage from "../pages/SearchPage/SearchPage";
+import PageNotFound from "../pages/PageNotFound/PageNotFound";
 
 export default function AppRoutes() {
     return (
@@ -26,6 +27,7 @@ export default function AppRoutes() {
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="*" element={<PageNotFound />} />
         </Routes>
     )
 }
