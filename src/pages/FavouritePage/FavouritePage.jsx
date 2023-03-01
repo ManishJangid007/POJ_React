@@ -11,6 +11,7 @@ import "./FavouritePage.css";
 
 export default function FavouritePage() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const { isFetching, data } = useQuery("getFavouriteRecipes",
         () => axios.get("/api/spn/favourite_recipes")
@@ -22,35 +23,39 @@ export default function FavouritePage() {
 
     useEffect(() => {
         axios.get('/api/user/')
-            .then(res => setIsAuthenticated(res.data.isAuthenticated))
+            .then(res => {
+                setIsAuthenticated(res.data.isAuthenticated);
+                setIsLoading(false);
+            })
     }, []);
 
     return (
-        isFetching ? <Loading /> :
+        isLoading ? <Loading /> :
             isAuthenticated ?
-                data.success ?
-                    data.recipes.length > 0 ?
-                        <div className="custom--grid">
-                            {data.recipes.map(recipe => <DishCard
-                                key={recipe.recipeId}
-                                data={
-                                    {
-                                        title: recipe.title,
-                                        image: recipe.imageUrl,
-                                        readyInMinutes: recipe.time,
-                                        vegetarian: recipe.veg
+                isFetching ? <Loading /> :
+                    data.success ?
+                        data.recipes.length > 0 ?
+                            <div className="custom--grid">
+                                {data.recipes.map(recipe => <DishCard
+                                    key={recipe.recipeId}
+                                    data={
+                                        {
+                                            title: recipe.title,
+                                            image: recipe.imageUrl,
+                                            readyInMinutes: recipe.time,
+                                            vegetarian: recipe.veg
+                                        }
                                     }
-                                }
-                                onClick={() => navigate(`/favourite/recipe/${recipe.recipeId}`)}
-                            />)}
-                        </div> :
+                                    onClick={() => navigate(`/favourite/recipe/${recipe.recipeId}`)}
+                                />)}
+                            </div> :
+                            <ErrorMessage>
+                                <h3>It's Empty Here ! 😒</h3>
+                            </ErrorMessage>
+                        :
                         <ErrorMessage>
-                            <h3>It's Empty Here ! 😒</h3>
+                            <h3>Something Went Wrong ! 😥 </h3>
                         </ErrorMessage>
-                    :
-                    <ErrorMessage>
-                        <h3>Something Went Wrong ! 😥 </h3>
-                    </ErrorMessage>
                 :
                 <ErrorMessage>
                     <h3>You Still Loged out 😆, Login ! 👇 </h3>
