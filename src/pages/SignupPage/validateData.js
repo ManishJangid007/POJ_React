@@ -19,7 +19,7 @@ export default function validateData(
     }
     else if (!isValidDOB(dob)) { errors.push("*DOB : enter valid Date of Birth"); }
     !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) && errors.push("*Email : enter correct email");
-    !/^[a-zA-Z0-9._-]{7,}$/.test(username) && errors.push("*Username : usernames must be at least 7 characters long");
+    !/^[a-zA-Z0-9._-]{7,}$/.test(username) && errors.push("*Username : usernames must be at least 7 characters long and does not contain whitespace");
     !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+-=,./?;:'"[\]{}|`~]{8,}$/.test(password) && errors.push(`*Password : Your password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit`);
     password !== confirmPassword && errors.push("*Confirm Password : password does not match");
     confirmPassword.length === 0 && errors.push("*Confirm Password : enter password");
