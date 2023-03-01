@@ -76,18 +76,18 @@ export default defineConfig({
           }
         ]
       },
-      workbox: {
-        runtimeCaching: [{
-          urlPattern: ({ url }) => url.pathname.startsWith("/api"),
-          handler: "CacheFirst",
-          options: {
-            cacheName: "api-catch",
-            cacheableResponse: {
-              statuses: [0, 200]
-            }
-          }
-        }]
-      }
+      // workbox: {
+      //   runtimeCaching: [{
+      //     urlPattern: ({ url }) => url.pathname.startsWith("/api"),
+      //     handler: "CacheFirst",
+      //     options: {
+      //       cacheName: "api-catch",
+      //       cacheableResponse: {
+      //         statuses: [0, 200]
+      //       }
+      //     }
+      //   }]
+      // }
     })
   ],
 })
